@@ -9,30 +9,30 @@ import java.util.Collection;
  */
 public class EnumSelectOption<T extends Enum<T> & Labelled> extends SelectOption<T> {
 
-    /**
-     * Constructor
-     *
-     * @param choice
-     *            - Enum item
-     * @param selected
-     *            - The selected item; may be null
-     */
-    public EnumSelectOption(T choice, T selected) {
-        super(choice, selected);
-        this.setLabel(choice.getLabel());
-    }
+	/**
+	 * Constructor
+	 *
+	 * @param choice
+	 *            - Enum item
+	 * @param selected
+	 *            - The selected item; may be null
+	 */
+	public EnumSelectOption(T choice, T selected) {
+		super(choice, selected);
+		this.setLabel(choice.getLabel());
+	}
 
-    /**
-     * Constructor used for an option in a multi-select.
-     *
-     * @param choice
-     *            - Enum item
-     * @param selected
-     *            - collection of selected items
-     */
-    public EnumSelectOption(T choice, Collection<T> selected) {
-        super(choice, selected);
-        this.setLabel(choice.getLabel());
-    }
+	/**
+	 * Constructor used for an option in a multi-select.
+	 *
+	 * @param choice
+	 *            - Enum item
+	 * @param selected
+	 *            - collection of selected items
+	 */
+	public EnumSelectOption(T choice, Collection<T> selected) {
+		super(choice, selected);
+		this.setLabel(choice.getLabel());
+	}
 
 }
