@@ -1,0 +1,49 @@
+### OSX ###
+.DS_Store
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### Vim ###
+*.swp
+
+# Visual Studio Code
+.vscode/launch.json
+
+# Node
+node_modules/
+bundle-stats.json
+
+# Jenv
+.java-version
+
+# Maven
+target/
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+mvnw
+mvnw.cmd
+
+.env
+docker_data/
+dev.properties
+
