@@ -14,7 +14,10 @@
         "editor.formatOnSave": true
     },
     "[java]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.detectIndentation": false,
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
     },
     "java.saveActions.organizeImports": true,
     "java.format.settings.url": "settings/OCTRI_java_format.xml",
