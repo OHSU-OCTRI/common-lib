@@ -87,6 +87,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 			@Valid @ModelAttribute("entity") T entity,
 			BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 		T newEntity = this.getRepository().save(entity);
+		model.put("newEntity", newEntity);
 		redirectAttributes.addFlashAttribute("successMessage", this.entityName() + " successfully created.");
 		return showRedirect(newEntity.getId());
 	}
