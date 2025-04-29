@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.1.0] - 2025-04-29
+
+### Added
+
+- Add method to `OptionList` for building a list from arbitrary strings.
+
 ## [1.0.0] - 2025-04-22
 
 Initial release of code extracted from other projects.
