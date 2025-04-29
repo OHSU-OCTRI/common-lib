@@ -62,6 +62,19 @@ public class OptionList<T> {
 	}
 
 	/**
+	 * Generates a list of strings.
+	 *
+	 * @param items
+	 * @param selected
+	 * @return
+	 */
+	public static List<SelectOption<String>> forStrings(List<String> items, String selected) {
+		return items.stream()
+				.map(value -> new SelectOption<String>(value, selected))
+				.collect(Collectors.toList());
+	}
+
+	/**
 	 * Given a collection of Enum values and the selected value, provides a list of objects that can be used directly by
 	 * mustachejs for rendering.
 	 *
