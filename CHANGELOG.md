@@ -27,3 +27,4 @@ Initial release of code extracted from other projects.
 
 [unreleased]: https://source.ohsu.edu/OCTRI-Apps/common-lib/compare/v1.0.0...HEAD
 [1.0.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.0.0
+[1.1.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.1.0
