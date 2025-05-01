@@ -6,6 +6,8 @@ Provide a brief description of what you did.
 
 Link Jira tickets here.
 
+[ ] Added to CHANGELOG.md
+
 ## Discussion
 
 - Bullet points about your contribution here
