@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Added infrastrucure for packaging javascript with the library
+- Added webjar dependencies
+- Added script to the new entity form that will reset the form so that browser cache does not populate it when the Back button is used.
+
+### Changed
+
+- Use the ViewUtils methods to add scripts and webjars
+
+### Fixed
+
+- Fixed ClassCastException when adding multiple scripts or webjars to the model
+
 ## [1.1.0] - 2025-04-29
 
 ### Added
