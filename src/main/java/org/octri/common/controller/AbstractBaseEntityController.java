@@ -80,6 +80,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 
 	public String newEntity(Map<String, Object> model) {
 		addTemplateAttributes(model);
+		ViewUtils.addPageScript(model, "form-reset.js");
 		model.put("entity", newEntity());
 		return template("form");
 	}
