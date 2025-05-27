@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.octri.common.domain.AbstractEntity;
+import org.octri.common.view.ViewUtils;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -64,9 +65,9 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 
 	public String list(Map<String, Object> model) {
 		addTemplateAttributes(model);
-		model.put("pageWebjars", new String[] { "datatables/js/jquery.dataTables.min.js",
-				"datatables/js/dataTables.bootstrap5.min.js" });
-		model.put("pageScripts", new String[] { "table-sorting.js" });
+		ViewUtils.addPageWebjar(model, "datatables/js/jquery.dataTables.min.js");
+		ViewUtils.addPageWebjar(model, "datatables/js/dataTables.bootstrap5.min.js");
+		ViewUtils.addPageScript(model, "table-sorting.js");
 		model.put("entity_list", getRepository().findAll());
 		return template("list");
 	}
@@ -79,6 +80,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 
 	public String newEntity(Map<String, Object> model) {
 		addTemplateAttributes(model);
+		ViewUtils.addPageScript(model, "form-reset.js");
 		model.put("entity", newEntity());
 		return template("form");
 	}
