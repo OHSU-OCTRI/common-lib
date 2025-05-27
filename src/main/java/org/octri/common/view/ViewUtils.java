@@ -73,7 +73,7 @@ public class ViewUtils {
 			var newList = new ArrayList<String>(Arrays.asList(((String[]) existingArray)));
 			if (!newList.contains(value)) {
 				newList.add(value);
-				model.put(key, newList.toArray());
+				model.put(key, newList.toArray(new String[0]));
 			}
 		} else {
 			model.put(key, new String[] { value });
