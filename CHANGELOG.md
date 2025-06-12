@@ -10,12 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added the file UPGRADING.md for tracking upgrade instructions.
+- Added table-filtering.js to standardize Datatables using the 'filtered' class
 
 ## [1.2.0] - 2025-05-27
 
 ### Added
 
 - Added script to the new entity form that will reset the form so that browser cache does not populate it when the Back button is used.
+- Added table-sorting.js script to standarize Datatables using the 'sorted' class
 
 ### Changed
 
