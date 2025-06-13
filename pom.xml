@@ -7,6 +7,7 @@
 	<packaging>jar</packaging>
 	<name>common_lib</name>
 	<description>OCTRI Common Library</description>
+	<url>https://source.ohsu.edu/OCTRI-Apps/common-lib</url>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -14,6 +15,25 @@
 		<relativePath />
 		<!-- lookup parent from repository -->
 	</parent>
+	<licenses>
+		<license>
+			<name>The 3-Clause BSD License</name>
+			<url>https://opensource.org/license/bsd-3-clause</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>OCTRI Innovation Core</name>
+			<email>criapps@ohsu.edu</email>
+			<organization>Oregon Clinical &amp; Translational Research Institute (OCTRI)</organization>
+			<organizationUrl>https://www.ohsu.edu/octri</organizationUrl>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:https://source.ohsu.edu/OCTRI-Apps/common-lib.git</connection>
+		<developerConnection>scm:git:https://source.ohsu.edu/OCTRI-Apps/common-lib.git</developerConnection>
+		<url>https://source.ohsu.edu/OCTRI-Apps/common-lib/tree/main</url>
+	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
