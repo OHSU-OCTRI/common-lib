@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Added POM metadata required for publishing to Maven Central. (CIS-3192)
+- Flesh out Javadoc to resolve warnings when building documentation. (CIS-3193)
 
 ## [1.3.0] - 2025-06-13
 
@@ -23,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added script to the new entity form that will reset the form so that browser cache does not populate it when the Back button is used.
-- Added table-sorting.js script to standarize Datatables using the 'sorted' class
+- Added table-sorting.js script to standardize Datatables using the 'sorted' class
 
 ### Changed
 
