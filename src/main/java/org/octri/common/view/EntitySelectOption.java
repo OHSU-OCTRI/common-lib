@@ -10,6 +10,7 @@ import org.octri.common.domain.AbstractEntity;
  * @author lawhead
  *
  * @param <T>
+ *            an entity type that extends {@link AbstractEntity} and implements the {@link Labelled} interface
  */
 public class EntitySelectOption<T extends AbstractEntity & Labelled> extends SelectOption<T> {
 
@@ -41,6 +42,11 @@ public class EntitySelectOption<T extends AbstractEntity & Labelled> extends Sel
 		this.setValue(choice.getId().toString());
 	}
 
+	/**
+	 * Gets the entity's unique ID.
+	 * 
+	 * @return entity ID
+	 */
 	public Long getId() {
 		return this.getChoice().getId();
 	}

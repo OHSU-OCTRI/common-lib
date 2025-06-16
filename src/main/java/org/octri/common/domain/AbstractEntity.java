@@ -18,68 +18,141 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.persistence.Version;
 
+/**
+ * Abstract superclass for database entities.
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Unique identifier.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	protected Long id;
 
+	/**
+	 * Optimistic locking version.
+	 */
 	@Version
 	protected Integer version;
 
+	/**
+	 * Timestamp when the record was created.
+	 */
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(updatable = false)
 	protected Date createdAt;
 
+	/**
+	 * Timestamp when the record was last modified.
+	 */
 	@LastModifiedDate
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date updatedAt;
 
+	/**
+	 * Username of the last user to modify the record.
+	 */
 	@LastModifiedBy
 	protected String updatedBy;
 
+	/**
+	 * Gets the record's unique identifier.
+	 *
+	 * @return the unique ID
+	 */
 	public Long getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the record's unique identifier.
+	 *
+	 * @param id
+	 *            the unique ID
+	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	/**
+	 * Gets the record's optimistic locking version.
+	 *
+	 * @return optimistic locking version
+	 */
 	public Integer getVersion() {
 		return version;
 	}
 
+	/**
+	 * Sets the record's optimistic locking version.
+	 *
+	 * @param version
+	 *            optimistic locking version
+	 */
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
 
+	/**
+	 * Gets the timestamp when the record was created.
+	 *
+	 * @return initial creation timestamp
+	 */
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
+	/**
+	 * Sets the timestamp when the record was created.
+	 *
+	 * @param createdAt
+	 *            initial creation timestamp
+	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
+	/**
+	 * Gets the timestamp when the record was last updated.
+	 *
+	 * @return last update timestamp
+	 */
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
+	/**
+	 * Sets the timestamp when the record was last updated.
+	 *
+	 * @param updatedAt
+	 *            last update timestamp
+	 */
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
+	/**
+	 * Gets the username of the user who last updated the record.
+	 *
+	 * @return username of the last updater
+	 */
 	public String getUpdatedBy() {
 		return updatedBy;
 	}
 
+	/**
+	 * Sets the username of the user who last updated the record.
+	 *
+	 * @param updatedBy
+	 *            username of the last updater
+	 */
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}

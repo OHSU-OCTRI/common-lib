@@ -5,7 +5,8 @@ import java.util.Collection;
 /**
  * Used for UI select inputs. Wraps the choice along with its selected status.
  *
- * @param<T>
+ * @param <T>
+ *            an enumeration type implementing the {@link Labelled} interface
  */
 public class EnumSelectOption<T extends Enum<T> & Labelled> extends SelectOption<T> {
 
