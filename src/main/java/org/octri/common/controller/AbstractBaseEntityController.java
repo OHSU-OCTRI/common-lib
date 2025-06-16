@@ -29,7 +29,9 @@ import jakarta.validation.Valid;
  * default mappings.
  *
  * @param <T>
+ *            an entity type extending {@link AbstractEntity}
  * @param <U>
+ *            repository type for accessing the entity
  */
 public abstract class AbstractBaseEntityController<T extends AbstractEntity, U extends CrudRepository<T, Long>> {
 
@@ -42,14 +44,14 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	/**
 	 * Class of the domain entity. Needed due to java type erasure.
 	 *
-	 * @return
+	 * @return class of the domain entity
 	 */
 	protected abstract Class<T> domainClass();
 
 	/**
 	 * Repository for the given domain entity. This should be autowired into the extending controller.
 	 *
-	 * @return
+	 * @return repository for the domain entity
 	 */
 	protected abstract U getRepository();
 
@@ -57,12 +59,20 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	 * Adds common view attributes to the Model passed to the view template.
 	 *
 	 * @param model
+	 *            map containing template data
 	 */
 	protected void addTemplateAttributes(Map<String, Object> model) {
 		model.put("entityName", this.entityName());
 		model.put("baseRoute", this.getBaseRoute());
 	}
 
+	/**
+	 * Renders the entity list view.
+	 * 
+	 * @param model
+	 *            map containing template data
+	 * @return the entity list
+	 */
 	public String list(Map<String, Object> model) {
 		addTemplateAttributes(model);
 		ViewUtils.addPageWebjar(model, "datatables/js/jquery.dataTables.min.js");
@@ -72,12 +82,28 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 		return template("list");
 	}
 
+	/**
+	 * Renders the details page for the entity with the given ID.
+	 * 
+	 * @param model
+	 *            map containing template data
+	 * @param id
+	 *            ID of the entity to display
+	 * @return the entity details page
+	 */
 	public String show(Map<String, Object> model, @PathVariable Long id) {
 		addTemplateAttributes(model);
 		model.put("entity", getRepository().findById(id).get());
 		return template("show");
 	}
 
+	/**
+	 * Renders the form to create a new entity.
+	 * 
+	 * @param model
+	 *            map containing template data
+	 * @return the new entity form
+	 */
 	public String newEntity(Map<String, Object> model) {
 		addTemplateAttributes(model);
 		ViewUtils.addPageScript(model, "form-reset.js");
@@ -85,6 +111,19 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 		return template("form");
 	}
 
+	/**
+	 * Saves a new entity.
+	 *
+	 * @param model
+	 *            form model
+	 * @param entity
+	 *            new entity
+	 * @param bindingResult
+	 *            binding result
+	 * @param redirectAttributes
+	 *            redirect attributes
+	 * @return redirect to the new entity's details page
+	 */
 	public String create(Map<String, Object> model,
 			@Valid @ModelAttribute("entity") T entity,
 			BindingResult bindingResult, RedirectAttributes redirectAttributes) {
@@ -94,12 +133,36 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 		return showRedirect(newEntity.getId());
 	}
 
+	/**
+	 * Renders the form to edit an entity.
+	 *
+	 * @param model
+	 *            template model data
+	 * @param id
+	 *            entity ID
+	 * @return form page to edit the entity with the given ID
+	 */
 	public String edit(Map<String, Object> model, @PathVariable Long id) {
 		addTemplateAttributes(model);
 		model.put("entity", getRepository().findById(id).get());
 		return template("form");
 	}
 
+	/**
+	 * Saves entity updates.
+	 *
+	 * @param model
+	 *            form model
+	 * @param id
+	 *            entity ID
+	 * @param entity
+	 *            updated entity
+	 * @param bindingResult
+	 *            binding result
+	 * @param redirectAttributes
+	 *            redirect attributes
+	 * @return redirect to the entity's details page
+	 */
 	public String update(Map<String, Object> model, @PathVariable Long id,
 			@Valid @ModelAttribute("entity") T entity, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
@@ -108,6 +171,15 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 		return showRedirect(id);
 	}
 
+	/**
+	 * Deletes the entity with the given ID.
+	 *
+	 * @param id
+	 *            entity ID
+	 * @param redirectAttributes
+	 *            redirect attributes
+	 * @return redirect to the entity list page
+	 */
 	public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes) {
 		try {
 			getRepository().deleteById(id);
@@ -125,7 +197,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	/**
 	 * Name displayed to the user in the UI.
 	 *
-	 * @return
+	 * @return entity name
 	 */
 	protected String entityName() {
 		return this.domainClass().getSimpleName();
@@ -134,7 +206,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	/**
 	 * Creates a new instance based on the provided domain entity class.
 	 *
-	 * @return
+	 * @return a new instance of the entity class
 	 */
 	protected T newEntity() {
 		try {
@@ -162,7 +234,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	/**
 	 * Get the template folder. If the value has been previously cached, uses that value, otherwise calculates it.
 	 *
-	 * @return
+	 * @return the folder containing templates related to the controller
 	 */
 	private String getTemplateFolder() {
 		if (templateFolder == null) {
@@ -176,7 +248,8 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	 * Utility function that returns the full path to the given template.
 	 *
 	 * @param viewName
-	 * @return
+	 *            template name
+	 * @return full path to the given template name
 	 */
 	protected String template(String viewName) {
 		return getTemplateFolder() + "/" + viewName;
@@ -186,7 +259,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	 * Computes the base route. Base routes should be relative to the contextPath. Unless overridden, the value is
 	 * acquired from the RequestMapping annotation.
 	 *
-	 * @return
+	 * @return base route relative to the context path
 	 */
 	protected String baseRoute() {
 		return this.getClass().getAnnotation(RequestMapping.class).value()[0];
@@ -206,6 +279,7 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 
 	/**
 	 * @param id
+	 *            entity ID
 	 * @return - route to the entity details page
 	 */
 	protected String showRoute(Long id) {
@@ -213,7 +287,6 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	}
 
 	/**
-	 *
 	 * @return The string returned from a controller method that will redirect to the listing page.
 	 */
 	protected String listingRedirect() {
@@ -221,13 +294,20 @@ public abstract class AbstractBaseEntityController<T extends AbstractEntity, U e
 	}
 
 	/**
-	 *
+	 * @param id
+	 *            entity ID
 	 * @return The string returned from a controller method that will redirect to the listing page.
 	 */
 	protected String showRedirect(Long id) {
 		return "redirect:" + this.showRoute(id);
 	}
 
+	/**
+	 * Customizes data binding to trim strings and set the date format.
+	 *
+	 * @param binder
+	 *            data binder to customize
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));

@@ -15,7 +15,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * Abstract class implementing common functionality for domain entity CRUD operations.
  *
  * @param <T>
+ *            an entity type extending {@link AbstractEntity}
  * @param <U>
+ *            repository type for accessing the entity
  */
 public abstract class AbstractEntityController<T extends AbstractEntity, U extends CrudRepository<T, Long>>
 		extends AbstractBaseEntityController<T, U> {

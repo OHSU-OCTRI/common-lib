@@ -13,6 +13,7 @@ import org.octri.common.domain.AbstractEntity;
  *
  * @author lawhead
  * @param <T>
+ *            type of items in the select list
  *
  */
 public class OptionList<T> {
@@ -21,9 +22,13 @@ public class OptionList<T> {
 	 * Given a Repository search result of lookups and the selected lookup item, provides a list of objects that can be
 	 * used directly by mustachejs for rendering.
 	 *
+	 * @param <T>
+	 *            an entity type extending {@link AbstractEntity} and implementing {@link Labelled}
 	 * @param iter
+	 *            iterable collection
 	 * @param selected
-	 * @return
+	 *            the current selection
+	 * @return a list of select options for the items in the collection
 	 */
 	public static <T extends AbstractEntity & Labelled> List<EntitySelectOption<T>> fromSearch(Iterable<T> iter,
 			T selected) {
@@ -36,9 +41,13 @@ public class OptionList<T> {
 	 * Used for multi-selects. Given a Repository search result of lookups and a list of selected lookup, provides a
 	 * list of objects that can be used directly by mustachejs for rendering.
 	 *
+	 * @param <T>
+	 *            an entity type extending {@link AbstractEntity} and implementing {@link Labelled}
 	 * @param iter
+	 *            iterable collection
 	 * @param selected
-	 * @return
+	 *            the current selection
+	 * @return a list of select options for the items in the collection
 	 */
 	public static <T extends AbstractEntity & Labelled> List<EntitySelectOption<T>> multiFromSearch(Iterable<T> iter,
 			Collection<T> selected) {
@@ -51,9 +60,12 @@ public class OptionList<T> {
 	 * Generates a list of integers in the given range from which to choose.
 	 *
 	 * @param start
+	 *            lower bound of the range
 	 * @param end
+	 *            upper bound of the range
 	 * @param selected
-	 * @return
+	 *            the current selection
+	 * @return a list of select options from start to end
 	 */
 	public static List<SelectOption<Integer>> forRange(Integer start, Integer end, Integer selected) {
 		return IntStream.rangeClosed(start, end)
@@ -65,8 +77,10 @@ public class OptionList<T> {
 	 * Generates a list of strings.
 	 *
 	 * @param items
+	 *            list of strings
 	 * @param selected
-	 * @return
+	 *            the current selection
+	 * @return a list of select options for the given strings
 	 */
 	public static List<SelectOption<String>> forStrings(List<String> items, String selected) {
 		return items.stream()
@@ -78,9 +92,13 @@ public class OptionList<T> {
 	 * Given a collection of Enum values and the selected value, provides a list of objects that can be used directly by
 	 * mustachejs for rendering.
 	 *
+	 * @param <T>
+	 *            an Enum type that implements the {@link Labelled} interface
 	 * @param iter
+	 *            an iterable collection of Enum values
 	 * @param selected
-	 * @return
+	 *            the current selection
+	 * @return a list of select options for the enum values in the collection
 	 */
 	public static <T extends Enum<T> & Labelled> List<EnumSelectOption<T>> fromEnum(Iterable<T> iter, T selected) {
 		return StreamSupport.stream(iter.spliterator(), false)
