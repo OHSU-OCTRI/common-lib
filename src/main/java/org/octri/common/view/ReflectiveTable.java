@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.octri.common.domain.AbstractEntity;
 
@@ -28,7 +27,7 @@ public class ReflectiveTable<T> implements Table {
 		this.fields = Arrays.stream(clazz.getDeclaredFields())
 				.filter(f -> !Modifier.isStatic(f.getModifiers()) && !Modifier.isTransient(f.getModifiers()))
 				.peek(f -> f.setAccessible(true))
-				.collect(Collectors.toList());
+				.toList();
 	}
 
 	@Override
@@ -38,34 +37,36 @@ public class ReflectiveTable<T> implements Table {
 
 	@Override
 	public List<String> headers() {
-		return fields.stream()
-				.map(Field::getName)
-				.collect(Collectors.toList());
+		return fields.stream().map(Field::getName).toList();
 	}
 
 	@Override
 	public List<List<String>> rows() {
 		return data.stream()
-				.map(instance -> fields.stream()
-						.map(field -> {
-							try {
-								Object value = field.get(instance);
-								if (value == null) {
-									return "";
-								}
-								if (field.isAnnotationPresent(ManyToOne.class)
-										|| field.isAnnotationPresent(OneToOne.class)) {
-									if (value instanceof AbstractEntity ae) {
-										return ae.getId() != null ? ae.getId().toString() : value.toString();
-									}
-								}
-								return value.toString();
-							} catch (IllegalAccessException e) {
-								throw new RuntimeException("Failed to read field: " + field.getName(), e);
-							}
-						})
-						.collect(Collectors.toList()))
-				.collect(Collectors.toList());
+				.map(instance -> fieldValues(instance))
+				.toList();
+	}
+
+	private List<String> fieldValues(T instance) {
+		return fields.stream().map(field -> stringValue(instance, field)).toList();
+	}
+
+	private String stringValue(T instance, Field field) {
+		try {
+			Object value = field.get(instance);
+			if (value == null) {
+				return "";
+			}
+			if (field.isAnnotationPresent(ManyToOne.class)
+					|| field.isAnnotationPresent(OneToOne.class)) {
+				if (value instanceof AbstractEntity ae) {
+					return ae.getId() != null ? ae.getId().toString() : value.toString();
+				}
+			}
+			return value.toString();
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException("Failed to read field: " + field.getName(), e);
+		}
 	}
 
 	public Class<T> getReflectiveClass() {
