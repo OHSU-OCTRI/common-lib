@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+- Added interfaces and utilities for exporting data to CSV and Excel
+
 ### Changed
 
 - Added POM metadata required for publishing to Maven Central. (CIS-3192)
