@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [1.4.0]
+
 ### Added
 
 - Added interfaces and utilities for exporting data to CSV and Excel
@@ -56,8 +58,9 @@ Initial release of code extracted from other projects.
   - `ViewUtils` utility class for manipulating JavaScript and WebJars added to the page
 - Add `AbstractEntity` class and related controller classes (CIS-3122)
 
-[unreleased]: https://source.ohsu.edu/OCTRI-Apps/common-lib/compare/v1.3.0...HEAD
+[unreleased]: https://source.ohsu.edu/OCTRI-Apps/common-lib/compare/v1.4.0...HEAD
 [1.0.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.0.0
 [1.1.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.1.0
 [1.2.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.2.0
 [1.3.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.3.0
+[1.4.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.4.0
