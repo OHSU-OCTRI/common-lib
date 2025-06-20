@@ -3,7 +3,7 @@ package org.octri.common.domain;
 import jakarta.persistence.ManyToOne;
 
 /**
- * A test domain class representing a participan response.
+ * A test domain class representing a participant response.
  */
 public class Response extends AbstractEntity {
 
