@@ -1,6 +1,9 @@
 package org.octri.common.domain;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -155,6 +158,46 @@ public abstract class AbstractEntity implements Serializable {
 	 */
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
+	}
+
+	/**
+	 * Convenience method to get the creation date as a LocalDate.
+	 * 
+	 * @return
+	 */
+	public LocalDate getCreatedDate() {
+		return getCreatedAt().toInstant()
+				.atZone(ZoneId.systemDefault())
+				.toLocalDate();
+	};
+
+	/**
+	 * Convenience method to get the creation date as an ISO formatted string.
+	 * 
+	 * @return
+	 */
+	public String getCreatedDateIso() {
+		return getCreatedDate().format(DateTimeFormatter.ISO_DATE);
+	}
+
+	/**
+	 * Convenience method to get the last updated date as a LocalDate.
+	 * 
+	 * @return
+	 */
+	public LocalDate getUpdatedDate() {
+		return getUpdatedAt().toInstant()
+				.atZone(ZoneId.systemDefault())
+				.toLocalDate();
+	};
+
+	/**
+	 * Convenience method to get the last updated date as an ISO formatted string.
+	 * 
+	 * @return
+	 */
+	public String getUpdatedDateIso() {
+		return getUpdatedDate().format(DateTimeFormatter.ISO_DATE);
 	}
 
 	@Override
