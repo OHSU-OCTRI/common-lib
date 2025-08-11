@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [1.6.0]
+
+### Added
+
+- Added a dependency on spring-boot-starter-mustache
+- Added a ViewConfig component with properties for supporting custom date formats in forms
+
 ## [1.5.0]
 
 ### Added
@@ -64,10 +71,11 @@ Initial release of code extracted from other projects.
   - `ViewUtils` utility class for manipulating JavaScript and WebJars added to the page
 - Add `AbstractEntity` class and related controller classes (CIS-3122)
 
-[unreleased]: https://source.ohsu.edu/OCTRI-Apps/common-lib/compare/v1.5.0...HEAD
-[1.0.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.0.0
-[1.1.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.1.0
-[1.2.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.2.0
-[1.3.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.3.0
-[1.4.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.4.0
+[unreleased]: https://source.ohsu.edu/OCTRI-Apps/common-lib/compare/v1.6.0...HEAD
+[1.6.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.6.0
 [1.5.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.5.0
+[1.4.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.4.0
+[1.3.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.3.0
+[1.2.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.2.0
+[1.1.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.1.0
+[1.0.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.0.0
