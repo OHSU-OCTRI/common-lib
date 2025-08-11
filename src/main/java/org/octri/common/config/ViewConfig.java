@@ -27,10 +27,14 @@ import com.samskivert.mustache.Mustache.TemplateLoader;
  * {@type LocalizationMessageInterceptor}.
  * </p>
  *
- * @see https://docs.spring.io/spring-framework/reference/core/validation/format.html
- * @see https://docs.spring.io/spring-framework/reference/core/validation/convert.html
- * @see https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mustache/MustacheAutoConfiguration.java
- * @see https://github.com/samskivert/jmustache#user-defined-object-formatting
+ * @see <a href=
+ *      "https://docs.spring.io/spring-framework/reference/core/validation/format.html">https://docs.spring.io/spring-framework/reference/core/validation/format.html</a>
+ * @see <a href=
+ *      "https://docs.spring.io/spring-framework/reference/core/validation/convert.html">https://docs.spring.io/spring-framework/reference/core/validation/convert.html</a>
+ * @see <a href=
+ *      "https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mustache/MustacheAutoConfiguration.java">https://github.com/spring-projects/spring-boot/blob/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/mustache/MustacheAutoConfiguration.java</a>
+ * @see <a href=
+ *      "https://github.com/samskivert/jmustache#user-defined-object-formatting">https://github.com/samskivert/jmustache#user-defined-object-formatting</a>
  */
 @Configuration
 @ConfigurationProperties(prefix = "octri.common.view")
