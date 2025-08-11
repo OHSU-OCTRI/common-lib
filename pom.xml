@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.octri.common</groupId>
 	<artifactId>common_lib</artifactId>
-	<version>1.6.0</version>
+	<version>1.6.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>common_lib</name>
 	<description>OCTRI Common Library</description>
