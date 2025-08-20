@@ -26,7 +26,13 @@ The library is implemented using [Spring Boot](https://spring.io/projects/spring
 
 ## Custom Date Formatting in Mustache Templates
 
-To use custom date formats in your application, set the common properties. For example, to use the U.S. Date Pattern:
+To use custom date formats in your application, enable component scanning on common packages in your application:
+
+```
+@ComponentScan(basePackages = { "org.octri.common", ...})
+```
+
+Set the common properties. For example, to use the U.S. Date Pattern:
 
 * octri.common.view.date-pattern=MM-dd-yyyy
 * octri.common.view.date-pattern-regex=[0-9]{2}-[0-9]{2}-[0-9]{4}
