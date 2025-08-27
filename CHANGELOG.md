@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [1.7.0]
+
 ### Added
 
 - Added interfaces to support finding and selecting Identifiable resources that have a unique UUID
@@ -75,7 +77,8 @@ Initial release of code extracted from other projects.
   - `ViewUtils` utility class for manipulating JavaScript and WebJars added to the page
 - Add `AbstractEntity` class and related controller classes (CIS-3122)
 
-[unreleased]: https://source.ohsu.edu/OCTRI-Apps/common-lib/compare/v1.6.0...HEAD
+[unreleased]: https://source.ohsu.edu/OCTRI-Apps/common-lib/compare/v1.7.0...HEAD
+[1.7.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.7.0
 [1.6.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.6.0
 [1.5.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.5.0
 [1.4.0]: https://source.ohsu.edu/OCTRI-Apps/common-lib/releases/tag/v1.4.0
