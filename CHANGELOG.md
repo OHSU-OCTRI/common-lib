@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+- Added interfaces to support finding and selecting Identifiable resources that have a unique UUID
+
 ## [1.6.0]
 
 ### Added
