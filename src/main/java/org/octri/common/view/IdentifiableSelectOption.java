@@ -7,13 +7,14 @@ import org.octri.common.domain.Identifiable;
 /**
  * Used for UI select inputs for choices that implement {@link Identifiable} and the value is a UUID.
  *
- * @param<T>
+ * @param <T>
+ *            the type being wrapped
  */
 public class IdentifiableSelectOption<T extends Identifiable> extends SelectOption<T> {
 
 	/**
 	 * Constructor for single select.
-	 * 
+	 *
 	 * @param choice
 	 *            - The choice to configure
 	 * @param selected
