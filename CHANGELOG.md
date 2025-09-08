@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+- Added GitHub Actions workflows to prepare for moving the repository (CIS-3350)
+
+### Fixed
+
+- Fixed Javadoc syntax errors
+
+
 ## [1.7.0]
 
 ### Added
@@ -24,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added convenience methods to AbsractEntity for display and sort of audit fields.
+- Added convenience methods to AbstractEntity for display and sort of audit fields.
 
 ## [1.4.0]
 
