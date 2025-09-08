@@ -15,7 +15,7 @@ import com.samskivert.mustache.Mustache.TemplateLoader;
 /**
  * Configuration for registering data formatters.
  *
- * <h3>Design notes:</h3>
+ * <h2>Design notes:</h2>
  * <p>
  * The typical Spring methods for configuring formatters do not work with Mustache templates. However, JMustache does
  * provide a mechanism to define custom formatters when creating a compiler. The main difference from the general
@@ -23,8 +23,9 @@ import com.samskivert.mustache.Mustache.TemplateLoader;
  * </p>
  * <p>
  * If we want to support formatting based on the Locale, this functionality should likely move to a custom Lambda
- * provided in a HandlerInterceptor class (ex. `{{#format}}{{myValue}}{{/format}}`). See
- * {@type LocalizationMessageInterceptor}.
+ * provided in a HandlerInterceptor class (ex. <code>{{#format}}{{myValue}}{{/format}}</code>). See
+ * <a href=
+ * "https://source.ohsu.edu/OCTRI-Apps/spring-boot-archetype/blob/3d973951dd1af0219ef30eab03d99315626d17b7/src/main/resources/archetype-resources/src/main/java/config/LocalizationMessageInterceptor.java">LocalizationMessageInterceptor</a>.
  * </p>
  *
  * @see <a href=
@@ -46,7 +47,7 @@ public class ViewConfig {
 
 	/**
 	 * Custom Mustache Compiler which registers a formatter.
-	 * 
+	 *
 	 * @param mustacheTemplateLoader
 	 * @return
 	 */

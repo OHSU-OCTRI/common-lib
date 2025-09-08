@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 /**
- * A {@Table} implementation that uses reflection to access all fields on the class provided.
+ * A {@link Table} implementation that uses reflection to access all fields on the class provided.
  */
 public class ReflectiveTable<T> implements Table {
 
