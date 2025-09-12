@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [unreleased]
+## [Unreleased]
+
+## [1.7.1] - 2025-09-12
 
 ### Added
 
@@ -95,7 +97,8 @@ Initial release of code extracted from other projects.
   - `ViewUtils` utility class for manipulating JavaScript and WebJars added to the page
 - Add `AbstractEntity` class and related controller classes (CIS-3122)
 
-[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.0...HEAD
+[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.1...HEAD
+[1.7.1]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.4.0...v1.5.0
