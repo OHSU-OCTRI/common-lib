@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2025-11-17
+
 ### Added
 
 - Added common validators for `LocalDate` entity fields. (CIS-3436)
@@ -105,7 +107,8 @@ Initial release of code extracted from other projects.
   - `ViewUtils` utility class for manipulating JavaScript and WebJars added to the page
 - Add `AbstractEntity` class and related controller classes (CIS-3122)
 
-[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.1...HEAD
+[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.8.0...HEAD
+[1.8.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.5.0...v1.6.0
