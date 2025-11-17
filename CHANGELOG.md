@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added common validators for `LocalDate` entity fields. (CIS-3436)
+
 ### Changed
 
 - Publish -SNAPSHOT releases to Maven Central. (CIS-3368)
