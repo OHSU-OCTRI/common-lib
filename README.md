@@ -7,6 +7,8 @@ This package contains the common classes useful for the development of OCTRI Spr
 * Patterns for method security
 * Configuration class for overriding date/time formats in Mustache
 
+It also makes a collection of WebJars available as transitive dependencies in downstream projects.
+
 
 ## Using This Package
 
@@ -19,6 +21,24 @@ To use this package, add it to your `pom.xml` file.
 		<version>${common_lib.version}</version>
 	</dependency>
 ```
+
+## WebJar Dependencies
+
+By including the webjar-locator dependency in [`pom.xml`](./pom.xml), this package provides simple version management for WebJar dependencies. That includes WebJar dependencies provided by this package, as well as dependencies that are declared in projects that depend on this package. 
+
+The provided WebJars include:
+
+* Bootstrap 5
+* DataTables 2
+* Font Awesome
+* jQuery 3
+* jQuery-UI
+
+### Dependency Conflicts
+
+To avoid unexpected behavior, avoid overriding dependencies provided by this package in downstream builds.
+
+Dependency conflicts may also arise when different versions of this package appear across a project's dependency tree. When possible, harmonize dependencies on this package to a single version. If versions cannot be fully harmonized, ensure that the selected versions include compatible versions of the above WebJar dependencies.
 
 ## Implementation
 

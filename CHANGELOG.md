@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgrade to DataTables 2.3.7 and encapsulate various front-end dependencies (CIS-3626)
+
 ## [1.8.0] - 2025-11-17
 
 ### Added
