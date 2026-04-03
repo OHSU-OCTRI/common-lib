@@ -33,6 +33,7 @@
         paging: paging,
         searching: searching,
         info: info,
+        autoWidth: false,
         initComplete: function (settings, json) {
           if (searchTitle) {
             const searchBox = document.querySelector(searchBoxSelector);
