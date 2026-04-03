@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Set the `autoWidth` DataTable option to false, to ensure that tables are full width (OPEN-363)
+
 ## [2.0.0] - 2026-03-13
 
 ### Changed
