@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-04-17
+
 ### Changed
 
 - Set the `autoWidth` DataTable option to false, to ensure that tables are full width (OPEN-363)
@@ -117,7 +119,8 @@ Initial release of code extracted from other projects.
   - `ViewUtils` utility class for manipulating JavaScript and WebJars added to the page
 - Add `AbstractEntity` class and related controller classes (CIS-3122)
 
-[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.0.0...HEAD
+[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.8.0...v2.0.0
 [1.8.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/OHSU-OCTRI/common-lib/compare/v1.7.0...v1.7.1
