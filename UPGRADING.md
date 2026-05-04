@@ -4,7 +4,7 @@
 
 Applications should update the filename used to include the DataTables WebJar on pages, from `jquery.dataTables.min.js` to `dataTables.min.js`. Additionally, packages and applications should:
 
-* Upgrade [authentication-lib](github.com/OHSU-OCTRI/authentication-lib) to 2.0.0,
+* Upgrade [authentication-lib]([github.com/OHSU-OCTRI/authentication-lib](https://github.com/OHSU-OCTRI/authentication-lib/blob/main/UPGRADING.md)) to 4.0.0,
 * Upgrade [survey-lib](https://source.ohsu.edu/OCTRI-Apps/survey-lib/) to 1.0.0 (if present), and
 * Remove the following WebJar dependencies from their `pom.xml` files:
   * Bootstrap
