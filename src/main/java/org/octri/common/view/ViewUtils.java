@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.octri.common.domain.AbstractEntity;
 
@@ -15,28 +16,35 @@ import org.octri.common.domain.AbstractEntity;
  */
 public class ViewUtils {
 
-	/**
-	 * Model attribute used to store the names of JavaScript files attached to the page.
-	 */
+	public final static String PAGE_STYLES_ATTRIBUTE = "pageStyles";
 	public final static String PAGE_SCRIPT_ATTRIBUTE = "pageScripts";
-
-	/**
-	 * Model attribute used to store the names of JavaScript files attached to the page if the user is an admin.
-	 */
 	public final static String ADMIN_SCRIPT_ATTRIBUTE = "adminScripts";
-
-	/**
-	 * Model attribute used to store the names of Webjars attached to the page.
-	 */
 	public final static String PAGE_WEBJAR_ATTRIBUTE = "pageWebjars";
+	public final static String PAGE_MODULE_ATTRIBUTE = "pageModules";
+	public final static String PAGE_MODULE_PRELOAD_ATTRIBUTE = "pageModulePreloads";
+
+	private static ViteManifest viteManifest = ViteManifest.empty();
+	private static String entryPointPrefix = "";
 
 	/**
-	 * Utility method for creating a map object with a nested entity. Useful for
-	 * using entity components in different contexts.
+	 * Sets the manifest to use to look up assets processed by Vite.
+	 * 
+	 * @param manifest
+	 *            the Vite manifest to use
+	 * @param entryPointPrefix
+	 *            the path prefix to prepend when searching the manifest for a script
+	 */
+	public static void useViteManifest(ViteManifest manifest, String entryPointPrefix) {
+		ViewUtils.viteManifest = manifest;
+		ViewUtils.entryPointPrefix = entryPointPrefix;
+	}
+
+	/**
+	 * Utility method for creating a map object with a nested entity. Useful for using entity components in different
+	 * contexts.
 	 *
 	 * @param entity
-	 *            an entity
-	 * @return a map with an "entity" key that references the given entity
+	 * @return
 	 */
 	public static Map<String, Object> entityWrapper(AbstractEntity entity) {
 		Map<String, Object> wrapper = new HashMap<String, Object>();
@@ -48,58 +56,86 @@ public class ViewUtils {
 	 * Add the given script name to the model's pageScripts (see footer.mustache).
 	 *
 	 * @param model
-	 *            template model data
 	 * @param scriptName
-	 *            name of javascript to add to page scripts
 	 */
 	public static void addPageScript(Map<String, Object> model, String scriptName) {
-		addArrayProperty(model, PAGE_SCRIPT_ATTRIBUTE, scriptName);
+		if (viteManifest.hasEntry(entryPointPrefix + scriptName)) {
+			addManifestModule(model, scriptName);
+		} else {
+			addArrayProperty(model, PAGE_SCRIPT_ATTRIBUTE, scriptName);
+		}
 	}
 
 	/**
 	 * Add the given script name to the model's adminScripts (see footer.mustache)
 	 *
 	 * @param model
-	 *            template model data
 	 * @param scriptName
-	 *            name of javascript to add to admin page scripts
 	 */
 	public static void addAdminScript(Map<String, Object> model, String scriptName) {
 		addArrayProperty(model, ADMIN_SCRIPT_ATTRIBUTE, scriptName);
 	}
 
 	/**
-	 * Add the given Webjar to the model's pageWebjars (see footer.mustache)
-	 * 
+	 * Adds the given webjar name to the model's pageWebjars (see footer.mustache)
+	 *
 	 * @param model
-	 *            template model data
 	 * @param scriptName
-	 *            name of the Webjar script to add
 	 */
 	public static void addPageWebjar(Map<String, Object> model, String scriptName) {
 		addArrayProperty(model, PAGE_WEBJAR_ATTRIBUTE, scriptName);
 	}
 
 	/**
-	 * Add a value to a model's string array property.
+	 * Adds the given entrypoint and its dependencies to the module's asset arrays.
+	 *
+	 * @param model
+	 * @param entryFilename
+	 */
+	public static void addManifestModule(Map<String, Object> model, String entryFilename) {
+		var manifestKey = entryPointPrefix + entryFilename;
+		var entryChunk = viteManifest.getEntryPoint(manifestKey);
+		var importedChunks = viteManifest.getImportedChunks(manifestKey);
+
+		// collect css files from entry and imported chunks
+		var importedCss = new ArrayList<>();
+		importedCss.addAll(entryChunk.css());
+		importedChunks.stream().forEach(chunk -> importedCss.addAll(chunk.css()));
+		if (importedCss.size() > 0) {
+			addArrayProperty(model, PAGE_STYLES_ATTRIBUTE, importedCss.toArray(new String[0]));
+		}
+
+		// add the entrypoint module
+		addArrayProperty(model, PAGE_MODULE_ATTRIBUTE, entryChunk.file());
+
+		// preload imported modules
+		var importedModules = importedChunks.stream()
+				.map(ViteManifest.ViteManifestChunk::file)
+				.collect(Collectors.toList());
+		if (importedModules.size() > 0) {
+			addArrayProperty(model, PAGE_MODULE_PRELOAD_ATTRIBUTE, importedModules.toArray(new String[0]));
+		}
+	}
+
+	/**
+	 * Add one or more values to a model's string array property.
 	 *
 	 * @param model
 	 *            - model to modify
 	 * @param key
 	 *            - property name
-	 * @param value
-	 *            - value to add to the Array
+	 * @param values
+	 *            - values to add to the Array
 	 */
-	public static void addArrayProperty(Map<String, Object> model, String key, String value) {
+	public static void addArrayProperty(Map<String, Object> model, String key, String... values) {
 		var existingArray = model.get(key);
-		if (existingArray != null) {
-			var newList = new ArrayList<String>(Arrays.asList(((String[]) existingArray)));
+		var newList = existingArray != null ? new ArrayList<String>(Arrays.asList(((String[]) existingArray)))
+				: new ArrayList<String>();
+		for (var value : values) {
 			if (!newList.contains(value)) {
 				newList.add(value);
-				model.put(key, newList.toArray(new String[0]));
 			}
-		} else {
-			model.put(key, new String[] { value });
 		}
+		model.put(key, newList.toArray(new String[0]));
 	}
 }
