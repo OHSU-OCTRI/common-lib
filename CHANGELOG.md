@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add support for Vite.js assets, using the Vite manifest to ensure all dependencies of a given asset are loaded on the page.
+
 ## [2.0.1] - 2026-04-17
 
 ### Changed
