@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add support for Vite.js assets, using the Vite manifest to ensure all dependencies of a given asset are loaded on the page.
 
+### Changed
+
+- Add GitHub Actions workflow to automatically add Dependabot updates to `CHANGELOG.md`.
+
+### Dependencies
+
+- Bump org.sonatype.central:central-publishing-maven-plugin from 0.9.0 to 0.10.0 #37
+- Bump actions/checkout from 5 to 6 #34
+
 ## [2.0.1] - 2026-04-17
 
 ### Changed
