@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Bump `org.webjars:jquery` from 3.7.1 to 4.0.0 ([#46](https://github.com/OHSU-OCTRI/common-lib/pull/46))
+
 ## [2.1.0] - 2026-05-28
 
 ### Added
