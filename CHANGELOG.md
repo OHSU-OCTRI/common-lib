@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Bump `poi.version` from 5.4.1 to 5.5.1 ([#35](https://github.com/OHSU-OCTRI/common-lib/pull/35))
+
 ## [2.1.0] - 2026-05-28
 
 ### Added
