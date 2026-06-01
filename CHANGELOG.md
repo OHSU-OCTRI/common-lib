@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Bump `org.springframework.boot:spring-boot-starter-parent` from 3.5.11 to 3.5.14 ([#48](https://github.com/OHSU-OCTRI/common-lib/pull/48))
+
 ## [2.1.0] - 2026-05-28
 
 ### Added
