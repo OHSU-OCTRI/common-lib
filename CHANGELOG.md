@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Bump `softprops/action-gh-release` from 2 to 3 ([#45](https://github.com/OHSU-OCTRI/common-lib/pull/45))
+
 ## [2.1.0] - 2026-05-28
 
 ### Added
