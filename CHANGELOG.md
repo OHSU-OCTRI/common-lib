@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump `softprops/action-gh-release` from 2 to 3 ([#45](https://github.com/OHSU-OCTRI/common-lib/pull/45))
 - Bump `org.webjars:datatables` from 2.3.7 to 2.3.8 ([#47](https://github.com/OHSU-OCTRI/common-lib/pull/47))
+- Bump `org.springframework.boot:spring-boot-starter-parent` from 3.5.11 to 3.5.14 ([#48](https://github.com/OHSU-OCTRI/common-lib/pull/48))
 
 ## [2.1.0] - 2026-05-28
 
