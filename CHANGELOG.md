@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Dependencies
 
 - Bump `softprops/action-gh-release` from 2 to 3 ([#45](https://github.com/OHSU-OCTRI/common-lib/pull/45))
+- Bump `org.webjars:datatables` from 2.3.7 to 2.3.8 ([#47](https://github.com/OHSU-OCTRI/common-lib/pull/47))
 
 ## [2.1.0] - 2026-05-28
 
