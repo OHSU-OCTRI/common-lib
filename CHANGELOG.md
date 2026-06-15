@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Dependencies
-
+- Bump `org.webjars:jquery-ui` from 1.14.1 to 1.14.2 ([#49](https://github.com/OHSU-OCTRI/common-lib/pull/49))
+- Bump `com.opencsv:opencsv` from 5.11.1 to 5.12.0 ([#53](https://github.com/OHSU-OCTRI/common-lib/pull/53))
 - Bump `org.webjars:jquery-ui` from 1.14.1 to 1.14.2 ([#49](https://github.com/OHSU-OCTRI/common-lib/pull/49))
 
 ## [2.1.1] - 2026-06-11
