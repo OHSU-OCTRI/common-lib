@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Use shared GitHub Actions workflows (CIS-3773)
+- Create a test build workflow to handle PRs (CIS-3773)
+
 ### Dependencies
 
 - Bump `spring-boot-starter-parent` from 3.5.14 to 3.5.15
