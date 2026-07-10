@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump `spring-boot-starter-parent` from 3.5.14 to 3.5.15
 - Bump `org.webjars:jquery-ui` from 1.14.1 to 1.14.2 ([#49](https://github.com/OHSU-OCTRI/common-lib/pull/49))
+- Bumps org.springframework.boot:spring-boot-starter-parent from 3.5.15 to 3.5.16
 
 ## [2.1.1] - 2026-06-11
 
