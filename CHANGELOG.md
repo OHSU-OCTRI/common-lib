@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.2] - 2026-08-20
+
 ### Changed
 
 - Use shared GitHub Actions workflows (CIS-3773)
@@ -154,7 +156,8 @@ Initial release of code extracted from other projects.
   - `ViewUtils` utility class for manipulating JavaScript and WebJars added to the page
 - Add `AbstractEntity` class and related controller classes (CIS-3122)
 
-[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.1.1...HEAD
+[unreleased]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.1.2...HEAD
+[2.1.2]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.0.1...v2.1.0
 [2.0.1]: https://github.com/OHSU-OCTRI/common-lib/compare/v2.0.0...v2.0.1
