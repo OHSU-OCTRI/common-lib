@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.1.2] - 2026-08-20
 
 **Do not use this version**
->2.2.4 Release not published due to automation error
+>2.1.2 Release not published due to automation error
 
 ### Changed
 
