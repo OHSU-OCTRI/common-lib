@@ -75,10 +75,10 @@ public class ViewConfig {
 		return new Mustache.Formatter() {
 
 			public String format(Object value) {
-				if (value instanceof LocalDate) {
-					return dateFormatter.print((LocalDate) value);
-				} else if (value instanceof LocalDateTime) {
-					return dateTimeFormatter.print((LocalDateTime) value);
+				if (value instanceof LocalDate date) {
+					return dateFormatter.print(date);
+				} else if (value instanceof LocalDateTime time) {
+					return dateTimeFormatter.print(time);
 				} else {
 					return String.valueOf(value);
 				}
