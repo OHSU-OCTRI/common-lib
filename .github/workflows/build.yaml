@@ -7,9 +7,6 @@ on:
       - 'spring-boot-4'
   workflow_dispatch:
 
-env:
-  PUBLISH: &publish ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/spring-boot-4' || github.ref_type == 'tag' }}
-
 jobs:
   build-java-source:
     name: Build jar files
@@ -49,7 +46,7 @@ jobs:
           echo "version=$version" >> $GITHUB_ENV
 
       - name: Publish to GitHub Packages
-        if: env.PUBLISH == 'true'
+        if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/spring-boot-4' || github.ref_type == 'tag' }}
         run: mvn deploy -DskipTests -Pci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,7 +55,7 @@ jobs:
   publish-to-maven-central:
     name: Publish to Maven Central
     needs: build-java-source
-    if: *publish
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/spring-boot-4' || github.ref_type == 'tag' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
