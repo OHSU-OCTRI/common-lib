@@ -1,11 +1,11 @@
 package org.octri.common.validation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CurrentOrPastDateValidatorTest {
 
@@ -13,22 +13,22 @@ public class CurrentOrPastDateValidatorTest {
 
 	@Test
 	public void testCurrentDateIsValid() {
-		assertTrue("Current LocalDate should be valid", validator.isValid(LocalDate.now(), null));
+		assertTrue(validator.isValid(LocalDate.now(), null), "Current LocalDate should be valid");
 	}
 
 	@Test
 	public void testPastDateIsValid() {
-		assertTrue("Future LocalDate should be valid", validator.isValid(LocalDate.now().minusDays(1), null));
+		assertTrue(validator.isValid(LocalDate.now().minusDays(1), null), "Future LocalDate should be valid");
 	}
 
 	@Test
 	public void testNullIsValid() {
-		assertTrue("Null LocalDate should be valid", validator.isValid(null, null));
+		assertTrue(validator.isValid(null, null), "Null LocalDate should be valid");
 	}
 
 	@Test
 	public void testFutureDateIsNotValid() {
-		assertFalse("Past date should not be valid", validator.isValid(LocalDate.now().plusDays(1), null));
+		assertFalse(validator.isValid(LocalDate.now().plusDays(1), null), "Past date should not be valid");
 	}
 
 }

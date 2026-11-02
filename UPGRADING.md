@@ -1,5 +1,11 @@
 # Upgrading
 
+## 3.x
+
+Consuming projects must upgrade to Java 21 and Spring Boot 4. 
+
+To minimize dependency conflicts, attempt to match the exact version of the `spring-boot-starter-parent` that is specified in the target version of this library.
+
 ## 2.0.0
 
 Applications should update the filename used to include the DataTables WebJar on pages, from `jquery.dataTables.min.js` to `dataTables.min.js`. Additionally, packages and applications should:

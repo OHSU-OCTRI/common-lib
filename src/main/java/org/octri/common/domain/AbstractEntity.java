@@ -1,5 +1,6 @@
 package org.octri.common.domain;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -28,6 +29,7 @@ import jakarta.persistence.Version;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AbstractEntity implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	/**
