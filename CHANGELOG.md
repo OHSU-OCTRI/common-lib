@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Dependencies
+
+- Bumps central-publishing-maven-plugin from 0.10.0 to 0.12.0 (CIS-3924)
+
 ## [3.0.0] - 2026-11-03
+
+**Do not use this version**
+
+> 3.0.0 Release not published due to automation error
 
 ### Dependencies
 
